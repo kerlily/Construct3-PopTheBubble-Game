@@ -1,0 +1,122 @@
+{
+	"name": "Event sheet 2",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "SCORE2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 277682211243246
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 374657357937343,
+					"parameters": {
+						"interval-seconds": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 537093830398927,
+					"parameters": {
+						"object-to-create": "Sprite4",
+						"layer": "0",
+						"x": "random(0,480)",
+						"y": "random(0,640)",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 762342251318855
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 411932176613579,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Sprite4"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Sprite4",
+					"sid": 602426528395719,
+					"parameters": {
+						"object": "Particles2",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Sprite4",
+					"sid": 172600480977866
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 353186062879867,
+					"parameters": {
+						"variable": "SCORE",
+						"value": "2"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 907394907885085,
+					"parameters": {
+						"audio-file": "preview",
+						"loop": "not-looping",
+						"volume": "50",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 813919914147509
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 649325838112823
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 959672255296660,
+					"parameters": {
+						"text": "\"SCORE :\"&SCORE"
+					}
+				}
+			],
+			"sid": 125021884868943
+		}
+	],
+	"sid": 699575084902516
+}
